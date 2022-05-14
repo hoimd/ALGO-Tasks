@@ -40,17 +40,17 @@ bool check(int &startWidth){
 }
 
 int binsearch(int l, int r){
-    while(l <= r){
+    while(l < r){
         int mid = (l + r + 1) / 2;
-        if(l == r){
-            return check(mid) ? mid : -1;
-        }
+
         if(check(mid)){
             l = mid;
         }else{
             r = mid - 1;
         }
     }
+
+    return check(r) ? r : -1;
 }
 
 int main(){
