@@ -1,75 +1,61 @@
-#include <iostream>
-#include <string>
-#include <vector>
+#include<iostream>
+#include<string>
+#include<vector>
 using namespace std;
 
 const int M = 1<<7;
 const char vowels[] = {'a', 'e', 'i', 'o', 'u', 'y'};
 
-bool check(string &a, string &b, int &k){
-    vector<int>v(M, 0), u(M, 0);
+bool check(string &s1, string &s2, int &k){
+    vector<int>aLett(M, 0), bLett(M, 0);
+    int aLen = 0, bLen = 0, aVow = 0, bVow = 0;
+    string a, b;
 
-    for(char i : a){
-        v[i]++;
+    for(char c : s1){
+        if(c != ' '){
+            aLett[c]++;
+            a += c;
+            aLen++;
+        }
     }
-    for(char i : b){
-        u[i]++;
+    for(char c : s2){
+        if(c != ' '){
+            bLett[c]++;
+            b += c;
+            bLen++;
+        }
     }
-
-    int sum = 0, sum1 = 0;
 
     for(char c : vowels){
-        sum += v[c];
-        sum1 += u[c];
+        aVow += aLett[c];
+        bVow += bLett[c];
     }
 
-    if(sum != sum1){
+    if(aVow != bVow || aLen < k || bLen < k){
         return false;
     }
 
-    sum = sum1 = 0;
-
-    for(int i = 'a';i <= 'z';i++){
-        sum += v[i];
-        sum1 += u[i];
-    }
-
-    if(sum < k || sum1 < k){
-        return false;
-    }
-
-    auto it = a.rbegin(), it2 = b.rbegin();
-
-    for(int i = 0;i < k;i++){
-        if(*it != *it2){
+    for(int i = 1;i <= k;i++){
+        if(a[aLen - i] != b[bLen - i]){
             return false;
         }
-
-        it++;
-        it2++;
-
-        while(*it == ' '){
-            it++;
-        }
-        while(*it2 == ' '){
-            it2++;
-        }
     }
+
     return true;
 }
 
-int main() {
+int main(){
     ios_base::sync_with_stdio(false);
     int n, k, res = 0;
     string a, b;
 
     cin >> n >> k;
-    getline(cin, a);
+    getline(cin,a);
 
     while(n--){
-        getline(cin, a);
-        getline(cin, b);
-        res += check(a, b, k);
+        getline(cin,a);
+        getline(cin,b);
+        res += check(a,b,k);
     }
 
     cout << res;
