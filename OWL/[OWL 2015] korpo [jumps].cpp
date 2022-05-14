@@ -24,9 +24,7 @@ int main(){
     cin >> n >> q;
 
     for(int i = 2;i <= n;i++){
-        int t;
-        cin >> t;
-        P[0][i] = t;
+        cin >> P[0][i];
     }
 
     P[0][1] = 1;

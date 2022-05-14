@@ -116,7 +116,6 @@ int main(){
 
     for(int i = 1;i <= k;i++){
         cin >> ant[i].pos;
-        occupied[ant[i].pos] = true;
     }
 
     cin >> l;
