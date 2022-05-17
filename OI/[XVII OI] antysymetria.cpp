@@ -12,9 +12,7 @@ int main(){
     for(int i = 0;i < n;i++){
         char z;
         cin >> z;
-        if(z == '1'){
-            s[i] = 1;
-        }
+        s[i] = z - '0';
     }
 
     int  j = 0, i = 1, k;
@@ -29,7 +27,7 @@ int main(){
        r[i] = j;
 
        for(k = 1;k <= j && r[i - k] != j - k;k++){
-           r[i + k] = min(j - k,r[i - k]);
+           r[i + k] = min(j - k, r[i - k]);
            res += r[i + k];
        }
 
