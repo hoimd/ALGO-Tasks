@@ -8,10 +8,7 @@ int e(int &x){
 }
 
 int binsearch(int l, int r){
-    while(l <= r){
-        if(l == r){
-            return l;
-        }
+    while(l < r){
         int mid = (l + r) / 2;
         if(e(mid) < q){
             l = mid + 1;
@@ -19,10 +16,13 @@ int binsearch(int l, int r){
             r = mid;
         }
     }
+    return r;
 }
 
 int32_t main(){
     ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int z;
     cin >> z;
 

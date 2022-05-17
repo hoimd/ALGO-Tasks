@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-int rpt[10];
+int rep[10];
 
 int main(){
     ios_base::sync_with_stdio(false);
@@ -10,7 +10,7 @@ int main(){
     cin >> s;
 
     for(auto it : s){
-        rpt[it - '0']++;
+        rep[it - '0']++;
     }
 
     cin >> n;
@@ -19,16 +19,16 @@ int main(){
         int l, res = 0;
         cin >> l >> s;
 
-        int t = rpt[l];
-        rpt[l] = 0;
+        int t = rep[l];
+        rep[l] = 0;
 
         for(auto it : s){
-            rpt[it - '0'] += t;
+            rep[it - '0'] += t;
         }
 
         for(int i = 0;i < 10;i++){
-            rpt[i] %= 9;
-            res =(res + i * rpt[i]) % 9;
+            rep[i] %= 9;
+            res =(res + i * rep[i]) % 9;
         }
 
         cout << res << '\n';

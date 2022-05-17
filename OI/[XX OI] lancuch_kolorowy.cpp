@@ -2,7 +2,7 @@
 using namespace std;
 
 const int M = 1<<20;
-int c[M], l[M], tab[M], cnt[M];
+int c[M], l[M], tab[M], rep[M];
 bool flag[M];
 
 int main(){
@@ -34,14 +34,14 @@ int main(){
 
     for(int i = 1;i <= len;i++) {
         int t = tab[i];
-        cnt[t]++;
+        rep[t]++;
 
         if(c[t]){
-            if(cnt[t] == c[t] && !flag[t]){
+            if(rep[t] == c[t] && !flag[t]){
                 flag[t] = true;
                 ok++;
             }else{
-                if(cnt[t] != c[t] && flag[t]){
+                if(rep[t] != c[t] && flag[t]){
                     flag[t] = false;
                     ok--;
                 }
@@ -55,26 +55,26 @@ int main(){
 
     for(int i = len + 1;i <= n;i++){
         int b = tab[i], a = tab[i - len];
-        cnt[a]--;
-        cnt[b]++;
+        rep[a]--;
+        rep[b]++;
 
         if(c[a]){
-            if(cnt[a] == c[a] && !flag[a]){
+            if(rep[a] == c[a] && !flag[a]){
                 flag[a] = true;
                 ok++;
             }else{
-                if(cnt[a] != c[a] && flag[a]){
+                if(rep[a] != c[a] && flag[a]){
                     flag[a] = false;
                     ok--;
                 }
             }
         }
         if(c[b]){
-            if(cnt[b] == c[b] && !flag[b]){
+            if(rep[b] == c[b] && !flag[b]){
                 flag[b] = true;
                 ok++;
             }else{
-                if(cnt[b] != c[b] && flag[b]){
+                if(rep[b] != c[b] && flag[b]){
                     flag[b] = false;
                     ok--;
                 }

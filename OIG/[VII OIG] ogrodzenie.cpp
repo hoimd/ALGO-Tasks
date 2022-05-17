@@ -4,16 +4,6 @@
 #define y second
 using namespace std;
 
-int nwd(int a, int  b){
-    if(a < b){
-        swap(a, b);
-    }
-    if(b == 0){
-        return a;
-    }
-    return nwd(b, a % b);
-}
-
 int main(){
     ios_base::sync_with_stdio(false);
     pair<int,int> oldPoint, newPoint, firstPoint;
@@ -28,7 +18,7 @@ int main(){
         cin >> newPoint.x >> newPoint.y;
         dx = newPoint.x - oldPoint.x;
         dy = newPoint.y - oldPoint.y;
-        nw = nwd(abs(dx),abs(dy));
+        nw = __gcd(abs(dx),abs(dy));
         dx /= nw;
         dy /= nw;
 
@@ -44,7 +34,7 @@ int main(){
 
     dx = firstPoint.x - oldPoint.x;
     dy = firstPoint.y - oldPoint.y;
-    nw = nwd(abs(dx),abs(dy));
+    nw = __gcd(abs(dx),abs(dy));
     dx /= nw;
     dy /= nw;
 

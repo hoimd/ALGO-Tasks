@@ -16,17 +16,17 @@ int pow(int a, int n){
     }
 }
 
-
-
 int main(){
     ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int n;
     cin >> n;
 
     while(n--){
         int a, b;
         cin >> a >> b;
-        cout << pow(a + 1,b) << '\n';
+        cout << pow(a + 1, b) << '\n';
     }
 
     return 0;

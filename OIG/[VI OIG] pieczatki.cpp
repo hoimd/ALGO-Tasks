@@ -7,7 +7,7 @@ using namespace std;
 const int M = 105;
 char tab[M][M];
 bool flag[M][M];
-vector<pair<int,int>>v[20], mark;
+vector<pair<int,int>>v[20], toMark;
 
 int main(){
     int n, m, a, b, p, cnt = 0;
@@ -29,9 +29,9 @@ int main(){
     for(int t = 0;t < p;t++){
         int px = 0, py = 0;
         scanf("%i %i\n",&a,&b);
-        for (int i = 1; i <= a; i++){
+        for(int i = 1; i <= a; i++){
             for (int j = 1; j <= b; j++){
-                if (getchar() == '#') {
+                if(getchar() == '#') {
                     v[t].emplace_back(j - px,i - py);
                     px = j;
                     py = i;
@@ -49,23 +49,23 @@ int main(){
                     bool iff = true;
                     int x = j, y = i;
 
-                    for(auto it : v[t]){
-                        x += it.x;
-                        y += it.y;
+                    for(auto [dx, dy] : v[t]){
+                        x += dx;
+                        y += dy;
                         if(x < 1 || x > m || y < 1 || y > n || tab[y][x] != '#'){
                             iff = false;
                             break;
                         }
-                        mark.emplace_back(x,y);
+                        toMark.emplace_back(x,y);
                     }
 
                     if(iff == true){
-                        for(auto [x, y] : mark){
+                        for(auto [x, y] : toMark){
                              cnt -= flag[y][x];
                              flag[y][x] = false;
                         }
                     }
-                    mark.clear();
+                    toMark.clear();
                 }
             }
         }

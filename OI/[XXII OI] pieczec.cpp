@@ -6,11 +6,11 @@ using namespace std;
 
 const int M = 1<<10;
 char tab[M][M];
-vector<pair<int,int>>v;
 
 bool solve(){
     int n, m, a, b;
     pair<int,int>prev;
+    vector<pair<int,int>>v;
 
     scanf("%i %i %i %i\n",&n, &m, &a, &b);
 
@@ -37,9 +37,9 @@ bool solve(){
         for(int j = 1;j <= m;j++){
             if(tab[i][j] == 'x'){
                 int x = j, y = i;
-                for(auto it : v){
-                    x += it.x;
-                    y += it.y;
+                for(auto [dx, dy] : v){
+                    x += dx;
+                    y += dy;
                     if(x < 1 || x > m || y < 1 || y > n || tab[y][x] != 'x'){
                         return false;
                     }

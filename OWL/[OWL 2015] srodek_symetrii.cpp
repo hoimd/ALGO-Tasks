@@ -8,7 +8,7 @@ using namespace std;
 vector<pair<int,int>>v, p;
 
 int solve(){
-    int cnt = 1, res = 1, n;
+    int rep = 1, res = 1, n;
     cin >> n;
 
     for(int i = 0;i < n;i++){
@@ -28,18 +28,18 @@ int solve(){
 
     for(int i = 1;i < v.size();i++){
         if(v[i] != prev){
-            res = max(res,cnt);
-            cnt = 1;
+            res = max(res,rep);
+            rep = 1;
             prev = v[i];
         }else{
-            cnt++;
+            rep++;
         }
     }
 
     p.clear();
     v.clear();
 
-    return n - max(res,cnt);
+    return n - max(res,rep);
 }
 
 int main(){
