@@ -45,7 +45,7 @@ int main(){
         for(int j = 2;j < n + 1;j++){
             if(!pool[i][j] && !pool[i][j + 1]){
                 int s = 0;
-                for (auto [dx, dy] : hor){
+                for(auto [dx, dy] : hor){
                     int p = pool[i + dy][j + dx];
                     s += poolSize[p] * !considered[p];
                     considered[p]++;
@@ -53,7 +53,7 @@ int main(){
 
                 res = max(res,s + 2);
 
-                for (auto [dx, dy] : hor){
+                for(auto [dx, dy] : hor){
                     int p = pool[i + dy][j + dx];
                     considered[p]--;
                 }
@@ -65,7 +65,7 @@ int main(){
         for(int j = 2;j < n + 2;j++){
             if(!pool[i][j] && !pool[i + 1][j]){
                 int s = 0;
-                for (auto [dx, dy] : ver){
+                for(auto [dx, dy] : ver){
                     int p = pool[i + dy][j + dx];
                     s += poolSize[p] * !considered[p];
                     considered[p]++;
@@ -73,7 +73,7 @@ int main(){
 
                 res = max(res,s + 2);
 
-                for (auto [dx, dy] : ver){
+                for(auto [dx, dy] : ver){
                     int p = pool[i + dy][j + dx];
                     considered[p]--;
                 }
