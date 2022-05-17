@@ -19,7 +19,6 @@ int main(){
         }else{
             v.push_back(prev);
         }
-
     }
 
     prev = n;
