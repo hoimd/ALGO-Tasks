@@ -19,7 +19,7 @@ int main(){
     for(int l = 1, r = 1; r <= n; r++){
         rep[tab[r]]++;
 
-        while(l <= r && rep[tab[r]] > 1){
+        while(rep[tab[r]] > 1){
             rep[tab[l]]--;
             l++;
         }
