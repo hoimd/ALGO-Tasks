@@ -1,6 +1,8 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#define score first
+#define name second
 using namespace std;
 
 vector<pair<int,string>>v;
@@ -22,9 +24,9 @@ int main(){
     sort(v.begin(),v.end());
 
     for(auto it = v.begin(); it!= v.end(); it++){
-        auto it2 = lower_bound(v.begin(), v.end(), make_pair(m - it->first, it->second));
-        if(it->first + it2->first == m){
-            cout << it->second << ' ' << it2->second;
+        auto it2 = lower_bound(v.begin(), v.end(), make_pair(m - it->score, it->name));
+        if(it->score + it2->score == m){
+            cout << it->name << ' ' << it2->name;
             return 0;
         }
     }
