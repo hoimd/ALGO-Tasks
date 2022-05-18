@@ -12,11 +12,8 @@ int main(){
     uint64_t res = 0;
     cin >> n >> m;
 
-    for(int i = 1; i <= n; i++){
-        cin >> tab[i];
-    }
-
     for(int l = 1, r = 1; r <= n; r++){
+        cin >> tab[r];
         rep[tab[r]]++;
 
         while(rep[tab[r]] > 1){
