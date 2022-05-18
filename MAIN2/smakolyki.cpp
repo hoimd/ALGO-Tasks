@@ -11,7 +11,7 @@ int main(){
     int n, m;
     uint64_t res = 0;
     cin >> n >> m;
-    
+
     for(int i = 1; i <= n; i++){
         cin >> tab[i];
     }
@@ -24,9 +24,7 @@ int main(){
             l++;
         }
 
-        if(rep[tab[r]] < 2){
-            res += r - l + 1;
-        }
+        res += r - l + 1;
     }
 
     cout << res;
