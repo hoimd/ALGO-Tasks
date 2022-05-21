@@ -7,11 +7,9 @@ int tree[2*M];
 void insert(int a, int val){
     a += M;
     tree[a] = val;
-    a /= 2;
 
-    while(a > 0){
+    while(a /= 2; a > 0; a /= 2){
         tree[a] = max(tree[2 * a],tree[2 * a + 1]);
-        a /= 2;
     }
 }
 
