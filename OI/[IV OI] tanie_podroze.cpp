@@ -76,8 +76,10 @@ int main(){
     ios_base::sync_with_stdio(false);
 
     in();
+
     dijkstra(cost,one);
     print_path(true);
+
     dijkstra(one,cost);
     print_path(false);
 

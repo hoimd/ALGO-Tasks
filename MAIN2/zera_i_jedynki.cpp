@@ -7,14 +7,12 @@ int bestL[MM], bestR[MM], zero[MM], best[MM];
 void insert(int a){
     a += M;
     bestL[a] = bestR[a] = zero[a] = !bestL[a];
-    a /= 2;
 
-    while(a > 0){
+    for(a /= 2; a > 0; a /= 2){
         zero[a] = zero[2 * a] && zero[2 * a + 1];
         bestL[a] = bestL[2 * a] + zero[2 * a] * bestL[2 * a + 1];
         bestR[a] = bestR[2 * a + 1] + zero[2 * a + 1] * bestR[2 * a];
         best[a] = max(max(best[2 * a], best[2 * a + 1]), bestR[2 * a] + bestL[2 * a + 1]);
-        a /= 2;
     }
 }
 

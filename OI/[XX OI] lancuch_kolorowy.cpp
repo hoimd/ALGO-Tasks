@@ -69,6 +69,7 @@ int main(){
                 }
             }
         }
+
         if(c[b]){
             if(rep[b] == c[b] && !flag[b]){
                 flag[b] = true;
@@ -80,6 +81,7 @@ int main(){
                 }
             }
         }
+
         if(ok == m){
             res++;
         }

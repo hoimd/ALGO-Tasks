@@ -14,7 +14,7 @@ struct vertex{
 
 inline void in(){
     cin >> n;
-    for(int i = 1;i <= 2*n;i++){
+    for(int i = 1;i <= 2 * n;i++){
         cin >> v[i].word;
     }
     for(int i = 1;i < n;i++){
@@ -25,7 +25,7 @@ inline void in(){
         }
         v[i].next.push_back(i + 1);
     }
-    for(int i = n + 1;i < 2*n;i++){
+    for(int i = n + 1;i < 2 * n;i++){
         v[i].next.push_back(i - n + 1);
         if(v[i + 1].word != v[i - n + 1].word){
             v[i].next.push_back(i + 1);
@@ -44,11 +44,9 @@ inline void in(){
 bool check(){
     int p = 0, k = word.size() - 1;
     while(p < k){
-        if(word[p] != word[k]){
+        if(word[p++] != word[k--]){
             return false;
         }
-        p++;
-        k--;
     }
     return true;
 }

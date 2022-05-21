@@ -3,7 +3,7 @@
 using namespace std;
 
 const int M = 1<<20;
-int obs[M], flag[M];
+bool obs[M], flag[M];
 vector<int>toMark, last;
 
 int main(){

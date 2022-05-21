@@ -8,12 +8,12 @@ int w[2*M], W[2*M];
 
 struct event{
     int a, b, x, val;
-    event(int a,int b,int x,int val) : a(a), b(b), x(x), val(val){}
+    event(int a, int b, int x, int val) : a(a), b(b), x(x), val(val){}
 };
 
 vector<event>events;
 
-bool cmp(event &a,event &b){
+bool cmp(event &a, event &b){
     if(a.x != b.x){
         return a.x < b.x;
     }
@@ -62,7 +62,7 @@ int main(){
     sort(events.begin(),events.end(),cmp);
 
     for(auto [a, b, x, val] : events){
-        insert(a,b,val);
+        insert(a, b, val);
         res = max(res, W[1]);
     }
 

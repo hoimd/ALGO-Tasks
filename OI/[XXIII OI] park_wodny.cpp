@@ -15,8 +15,8 @@ int main(){
     const pair<int,int> st[] = {{-1,0},{1,0},{0,-1},{0,1}},
             hor[] = {{-1,0},{0,-1},{1,-1},{2,0},{1,1},{0,1}},
             ver[] = {{0,-1},{1,0},{1,1},{0,2},{-1,-1},{-1,0}};
-    cin >> n;
 
+    cin >> n;
     for(int i = 2;i < n + 2;i++){
         for(int j = 2;j < n + 2;j++){
             char c;
@@ -119,7 +119,7 @@ int main(){
 
         for(auto [x, y] : v){
             int s = 0;
-            for (auto [dx, dy] : st){
+            for(auto [dx, dy] : st){
                 int p = pool[y + dy][x + dx];
                 s += poolSize[p];
             }
@@ -136,7 +136,7 @@ int main(){
 
         for(auto [x, y] : v){
             int s = 0;
-            for (auto [dx, dy] : st){
+            for(auto [dx, dy] : st){
                 int p = pool[y + dy][x + dx];
                 s += poolSize[p] * !considered[p];
                 considered[p]++;
