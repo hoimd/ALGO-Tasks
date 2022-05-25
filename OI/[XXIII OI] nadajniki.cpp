@@ -143,7 +143,7 @@ int main(){
     ios_base::sync_with_stdio(false);
     int n, a, b, res = 0;
 
-    cin>>n;
+    cin >> n;
 
     if(n == 1){
         cout << 0;
